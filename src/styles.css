@@ -1,0 +1,18 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+  text-align: left;
+  padding: 0 10px;
+}
+
+li {
+  margin: 10px 0px;
+}
+
+input {
+  margin-right: 10px;
+}
