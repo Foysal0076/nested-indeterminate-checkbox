@@ -3,7 +3,7 @@ import "./styles.css"
 import List from "./List"
 import { status } from "./constants"
 import Posts from "./component/Posts"
-import PostsV2 from "./component/PostCard"
+import PostsV2 from "./component/PostsV2"
 
 const customData = [
     {
@@ -252,12 +252,12 @@ export default function App() {
         setItems(customData1)
     }, [])
 
-
     return (
         <div className="App">
             {/* <button onClick={() => findParentStatus(customData1[0], 31)}>Check</button> */}
             {/* <List items={items} compute={compute} /> */}
             <h1>Posts</h1>
+            {/* <Posts /> */}
             <PostsV2 />
         </div>
     )
