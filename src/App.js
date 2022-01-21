@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react"
 import "./styles.css"
 import List from "./List"
 import { status } from "./constants"
+import Posts from "./component/Posts"
+import PostsV2 from "./component/PostCard"
 
 const customData = [
     {
@@ -71,8 +73,6 @@ const customData1 = [
         ]
     }
 ]
-
-
 
 // const a = findParentStatus(customData1, 31)
 // console.log({ a })
@@ -154,14 +154,13 @@ const data1 = [
 export default function App() {
 
     const [parentStatus, setParentStatus] = useState()
-    console.log({ parentStatus })
 
     const findParentStatus = (mainData, childrenId) => {
+        let parentId = null
         if (mainData.id === childrenId) {
             return false
         }
         if (mainData.items) {
-            let parentId = null
             for (let index = 0; index < mainData.items.length; index++) {
                 if (mainData.items[index].id === childrenId) {
                     setParentStatus(mainData.id)
@@ -172,8 +171,11 @@ export default function App() {
                     findParentStatus(mainData.items[index], childrenId)
                 }
             }
-            console.log({parentId})
-            return parentId
+            if (parentId) {
+                return parentId
+            } else {
+                return 1
+            }
             // mainData.items.forEach(item => {
             //     if (item.id === childrenId) {
             //         setParentStatus(mainData.id)
@@ -184,7 +186,7 @@ export default function App() {
             //     }
             // })
         }
-        return
+        return 1
     }
 
     const setStatus = (root, status) => {
@@ -254,7 +256,9 @@ export default function App() {
     return (
         <div className="App">
             {/* <button onClick={() => findParentStatus(customData1[0], 31)}>Check</button> */}
-            <List items={items} compute={compute} />
+            {/* <List items={items} compute={compute} /> */}
+            <h1>Posts</h1>
+            <PostsV2 />
         </div>
     )
 }
